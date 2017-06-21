@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LfC-Gh-YfS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Karaoke-->
+        <scene sceneID="ZCv-a3-JeK">
+            <objects>
+                <tableViewController id="qEE-eB-RAV" customClass="KaraokeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZAN-eX-PXM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="KaraokeTableCell" id="BC5-Di-R4q">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BC5-Di-R4q" id="NOk-Ud-BCE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="SLz-Ao-daj" kind="show" id="Omr-8V-qZN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qEE-eB-RAV" id="YTC-yX-IaV"/>
+                            <outlet property="delegate" destination="qEE-eB-RAV" id="AKk-xd-bEq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Karaoke" id="wI9-OY-c91">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="qbp-wo-ybu">
+                            <connections>
+                                <action selector="reloadSongs:" destination="qEE-eB-RAV" id="Ifw-Zc-K7p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olJ-wk-ztH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1848.8" y="129.98500749625188"/>
+        </scene>
+        <!--Song Player View Controller-->
+        <scene sceneID="fyJ-C9-Jkw">
+            <objects>
+                <viewController id="SLz-Ao-daj" customClass="SongPlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egO-Ev-VDf"/>
+                        <viewControllerLayoutGuide type="bottom" id="5EA-3T-UMv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="he0-2s-6Q6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJ7-OV-gWK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ApR-U6-1DL" appends="YES" id="gYc-6D-EDx"/>
+                        </connections>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="vJ7-OV-gWK" id="3IJ-65-rja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBQ-i7-b5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ApR-U6-1DL">
+                    <connections>
+                        <action selector="playSong:" destination="SLz-Ao-daj" id="2cw-YX-3z7"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2828" y="129.98500749625188"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Djj-El-dwZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LfC-Gh-YfS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MHy-Qy-zpP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qEE-eB-RAV" kind="relationship" relationship="rootViewController" id="Zzl-5I-wO0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYa-Vb-hEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="909.60000000000002" y="129.98500749625188"/>
+        </scene>
+    </scenes>
+</document>
